@@ -1,0 +1,63 @@
+{
+    "name": "wandesnet/mercadopago-laravel",
+    "description": "PHP SDK for integration with Mercado Pago",
+    "keywords": ["php", "mercado pago", "SDK Mercado Pago", "Mercado Pago SDK", "Mercado Pago API", "Mercado Pago PHP", "Mercado Pago PHP SDK", "Mercado Pago SDK PHP"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Wandes Cardoso",
+            "email": "wandes2030@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1.0",
+        "sammyjo20/saloon": "^2.5"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.7",
+        "pestphp/pest": "^2.4.0",
+        "phpstan/phpstan": "^1.10.10",
+        "symfony/var-dumper": "^6.2.8",
+        "symfony/dotenv": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "WandesCardoso\\MercadoPago\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "aliases": {
+                "MercadoPago": "WandesCardoso\\MercadoPago\\Facades\\MercadoPago"
+            },
+            "providers": [
+                "WandesCardoso\\MercadoPago\\MercadoPagoServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "scripts": {
+        "lint": "pint -v",
+        "test:lint": "pint --test -v",
+        "test:types": "phpstan analyse --ansi",
+        "test:unit": "pest --colors=always",
+        "test": [
+            "@test:lint",
+            "@test:types",
+            "@test:unit"
+        ]
+    }
+}
