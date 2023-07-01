@@ -15,12 +15,10 @@ Next, publish resources using the vendor:publish command:
 
 ## Configuration
 
-After publishing the resources, its configuration file will be located at `config/mercadopago.php`. This file allows you to configure the credentials of your Mercado Pago application.
+After publishing the resources, its configuration file will be located at `.env`. This file allows you to configure the credentials of your Mercado Pago application.
 
 ```php
-return [
-    'access_token' => env('MP_ACCESS_TOKEN'),
-];
+MP_ACCESS_TOKEN=
 ```
     
 ## Usage
