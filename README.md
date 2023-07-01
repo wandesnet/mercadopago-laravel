@@ -11,7 +11,7 @@ This integration package with Mercado Pago (not the official one)
     composer require wandesnet/mercadopago-laravel
 Next, publish resources using the vendor:publish command:
 
-    php artisan vendor:publish --provider="WandesCardoso\MercadoPago\MercadoPagoServiceProvider" --tag="mercadopago-config" 
+    php artisan vendor:publish --provider="WandesCardoso\MercadoPago\MercadoPagoServiceProvider" 
 
 ## Configuration
 
