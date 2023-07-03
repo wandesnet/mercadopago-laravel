@@ -2,6 +2,8 @@
 
 This integration package with Mercado Pago (not the official one)
 
+Documentation official: https://www.mercadopago.com.br/developers
+
 ## Required
 
 - **PHP 8.1+**
