@@ -8,15 +8,15 @@ use WandesCardoso\MercadoPago\Request\GetRequest;
 use WandesCardoso\MercadoPago\Request\PutRequest;
 use WandesCardoso\MercadoPago\Request\PostRequest;
 use WandesCardoso\MercadoPago\Request\DeleteRequest;
-use WandesCardoso\MercadoPago\Request\GetPaymentRequest;
 
 class MpResource extends Resource
 {
     /**
-     * @param array<string, mixed> $params
+     * @param  array<string, mixed>  $params
+     *
      * @return array <string, mixed>
      * */
-    public function get(string $uri, $params = []): array
+    public function get(string $uri, array $params = []): array
     {
         $response = $this->connector->send(new GetRequest($uri, $params));
 
@@ -58,17 +58,6 @@ class MpResource extends Resource
     public function delete(string $uri): array
     {
         $response = $this->connector->send(new DeleteRequest($uri));
-
-        return [
-            'body' => json_decode($response->body()),
-            'httpCode' => $response->status(),
-        ];
-    }
-
-    /** @return array <string, mixed> */
-    public function payment(string $id): array
-    {
-        $response = $this->connector->send(new GetPaymentRequest($id));
 
         return [
             'body' => json_decode($response->body()),

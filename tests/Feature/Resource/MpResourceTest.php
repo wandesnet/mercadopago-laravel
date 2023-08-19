@@ -40,16 +40,3 @@ it('can delete', function () {
         ->and($response['httpCode'])->toEqual(200);
 });
 
-it('can get payment', function () {
-    $mockClient = mockClient([
-        'id' => 1234567890,
-        'status' => 'approved',
-    ]);
-
-    $response = Mp::make(getAccessToken())->withMockClient($mockClient)->request()->payment('1234567890');
-
-    expect($response)->toBeArray()
-        ->and($response['body']->id)->toEqual('1234567890')
-        ->and($response['body']->status)->toEqual('approved')
-        ->and($response['httpCode'])->toEqual(200);
-});
