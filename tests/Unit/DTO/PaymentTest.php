@@ -10,18 +10,16 @@ use WandesCardoso\MercadoPago\DTO\Phone;
 it('can create DTO payment with single items', function () {
 
     $item = Item::make()
-            ->setTitle('Teste produto 1')
-            ->setQuantity(1)
-            ->setUnitPrice(100)
-            ->setDescription('Teste de descrição do produto')
-            ->setPictureUrl('https://www.mercadopago.com/org-img/MP3/home/logomp3.gif')
-            ->setCategoryId('electronics');
-
+        ->setTitle('Teste produto 1')
+        ->setQuantity(1)
+        ->setUnitPrice(100)
+        ->setDescription('Teste de descrição do produto')
+        ->setPictureUrl('https://www.mercadopago.com/org-img/MP3/home/logomp3.gif')
+        ->setCategoryId('electronics');
 
     $payment = Payment::make()
         ->addItem($item)
         ->toArray();
-
 
     expect($payment)->toBeArray()
         ->and($payment['additional_info']['items'])->toBeArray()
@@ -52,7 +50,6 @@ it('can create DTO payment with multiples items', function () {
         ->addItem($item)
         ->toArray();
 
-
     expect($payment)->toBeArray()
         ->and($payment['additional_info']['items'])->toBeArray()
         ->and($payment['additional_info']['items'])->toHaveCount(2)
@@ -60,7 +57,7 @@ it('can create DTO payment with multiples items', function () {
 });
 
 it('can set payer in payment DTO', function () {
-     $payer = new Payer(
+    $payer = new Payer(
         'test_user_715128095@testuser.com',
         'Wandes',
         'Cardoso',
@@ -110,5 +107,3 @@ it('can set payer in payment DTO', function () {
         ->and($payment['payer']['identification']['number'])->toEqual('19119119100');
 
 });
-
-

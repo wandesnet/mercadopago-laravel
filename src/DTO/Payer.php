@@ -47,7 +47,20 @@ final class Payer implements Arrayable
             'entity_type' => $this->entityType,
             'type' => $this->type,
             'id' => $this->id,
-            'identification' => $this->getIdentification(),
+            'identification' => $this->getIdentification()->toArray(),
+        ];
+    }
+
+    /** @return array<string, mixed> */
+    protected function payerPreference(): array
+    {
+        return [
+            'first_name' => $this->firstName,
+            'last_name' => $this->lastName,
+            'email' => $this->email,
+            'phone' => $this->getPhone(),
+            'identification' => $this->getIdentification()->toArray(),
+            'address' => $this->getAddress()->toArray(),
         ];
     }
 
@@ -57,16 +70,14 @@ final class Payer implements Arrayable
         return $this->phone instanceof Phone ? $this->phone->toArray() : $this->phone;
     }
 
-    /** @return array<string, mixed> */
-    protected function getIdentification(): array
+    protected function getIdentification(): Identification
     {
-        return $this->identification instanceof Identification ? $this->identification->toArray() : $this->identification;
+        return $this->identification instanceof Identification ? $this->identification : Identification::make($this->identification);
     }
 
-    /** @return array<string, mixed> */
-    protected function getAddress(): array
+    public function getAddress(): Address
     {
-        return $this->address instanceof Address ? $this->address->toArray() : $this->address;
+        return $this->address instanceof Address ? $this->address : Address::make($this->address);
     }
 
     public function toArray(): array
@@ -74,7 +85,8 @@ final class Payer implements Arrayable
         return [
             'payer' => $this->payer(),
             'additional_info' => $this->getAdditionalInfoPayer(),
-            'address' => $this->getAddress(),
+            'address' => $this->getAddress()->toArray(),
+            'preferences' => $this->payerPreference(),
         ];
     }
 

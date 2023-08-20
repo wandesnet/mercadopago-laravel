@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace WandesCardoso\MercadoPago;
 
 use Saloon\Http\Connector;
-use WandesCardoso\MercadoPago\Traits\MpRequestTrait;
+use WandesCardoso\MercadoPago\Traits\MpRequest;
 
 final class MercadoPago extends Connector
 {
-    use MpRequestTrait;
+    use MpRequest;
 
     public function __construct(?string $access_token = null)
     {
@@ -18,7 +18,7 @@ final class MercadoPago extends Connector
 
     public function resolveBaseUrl(): string
     {
-        return 'https://api.mercadopago.com/v1';
+        return 'https://api.mercadopago.com';
     }
 
     protected function defaultHeaders(): array

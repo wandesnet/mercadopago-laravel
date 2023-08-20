@@ -39,4 +39,3 @@ it('can delete', function () {
         ->and($response['body']->user_id)->toEqual(3123456)
         ->and($response['httpCode'])->toEqual(200);
 });
-

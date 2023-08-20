@@ -6,8 +6,9 @@ namespace WandesCardoso\MercadoPago\Traits;
 
 use WandesCardoso\MercadoPago\Resource\MpResource;
 use WandesCardoso\MercadoPago\Resource\PaymentResource;
+use WandesCardoso\MercadoPago\Resource\PreferenceResource;
 
-trait MpRequestTrait
+trait MpRequest
 {
     public function request(): MpResource
     {
@@ -17,5 +18,10 @@ trait MpRequestTrait
     public function payment(): PaymentResource
     {
         return new PaymentResource($this);
+    }
+
+    public function preference(): PreferenceResource
+    {
+        return new PreferenceResource($this);
     }
 }
