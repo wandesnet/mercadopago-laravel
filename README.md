@@ -28,7 +28,7 @@ MP_ACCESS_TOKEN=
 ```php
 use WandesCardoso\MercadoPago\Facades\MercadoPago;
 
-$mp = MercadoPago::payment()->find('123232');
+$mp = MercadoPago::payment()->find('1232324');
 
 var_dump($mp);
 
