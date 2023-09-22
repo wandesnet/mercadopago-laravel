@@ -11,7 +11,8 @@
     ],
     "require": {
         "php": "^8.1.0",
-        "saloonphp/saloon": "^2.5"
+        "saloonphp/saloon": "^2.5",
+        "laravel/framework": "^10.0"
     },
     "require-dev": {
         "laravel/pint": "^1.7",
