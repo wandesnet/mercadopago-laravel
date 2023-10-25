@@ -1,7 +1,7 @@
 <?php
 
-use Saloon\Contracts\Request;
-use Saloon\Contracts\Response;
+use Saloon\Http\Request;
+use Saloon\Http\Response;
 use WandesCardoso\MercadoPago\MercadoPago as Mp;
 use WandesCardoso\MercadoPago\Request\PutRequest;
 

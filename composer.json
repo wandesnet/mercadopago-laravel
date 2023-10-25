@@ -11,14 +11,14 @@
     ],
     "require": {
         "php": "^8.1.0",
-        "saloonphp/saloon": "^2.5",
-        "laravel/framework": "^10.0"
+        "saloonphp/saloon": "^3.0.2",
+        "laravel/framework": "^10.29"
     },
     "require-dev": {
-        "laravel/pint": "^1.7",
-        "pestphp/pest": "^2.4.0",
-        "phpstan/phpstan": "^1.10.10",
-        "symfony/var-dumper": "^6.2.8",
+        "laravel/pint": "^1.13.4",
+        "pestphp/pest": "^2.24.0",
+        "phpstan/phpstan": "^1.10.39",
+        "symfony/var-dumper": "^6.3.6",
         "symfony/dotenv": "^6.3"
     },
     "autoload": {
