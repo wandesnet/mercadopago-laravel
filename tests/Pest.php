@@ -45,7 +45,13 @@ expect()->extend('toBeOne', function () {
 */
 function getAccessToken(): string
 {
-    (new Dotenv())->load(__DIR__ . '/../../../../.env');
+    $dir = __DIR__ . '/../../../../.env';
+
+    if( ! file_exists($dir)) {
+        return '';
+    }
+
+    (new Dotenv())->load($dir);
 
     return $_ENV['MP_ACCESS_TOKEN'];
 }
