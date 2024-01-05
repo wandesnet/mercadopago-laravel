@@ -1,3 +1,9 @@
+## Mercado Pago Laravel
+<a href="https://github.com/wandesnet/mercadopago-laravel/actions"><img src="https://github.com/wandesnet/mercadopago-laravel/workflows/run-tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/wandesnet/mercadopago-laravel"><img src="https://img.shields.io/packagist/dt/wandesnet/mercadopago-laravel" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/wandesnet/mercadopago-laravel"><img src="https://img.shields.io/packagist/v/wandesnet/mercadopago-laravel" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/wandesnet/mercadopago-laravel"><img src="https://img.shields.io/packagist/l/wandesnet/mercadopago-laravel" alt="License"></a>
+
 ## Introduction
 
 This integration package with Mercado Pago (not the official one)
