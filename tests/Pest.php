@@ -15,7 +15,7 @@ use Saloon\Http\Faking\MockResponse;
 |
 */
 
- uses(Tests\TestCase::class)->in('Feature');
+uses(Tests\TestCase::class)->in('Feature');
 
 /*
 |--------------------------------------------------------------------------
