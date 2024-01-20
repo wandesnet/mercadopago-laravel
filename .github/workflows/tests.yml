@@ -51,4 +51,4 @@ jobs:
               run: vendor/bin/pint --test
 
             - name: Execute tests
-              run: vendor/bin/pest --parallel --order-by random
+              run: vendor/bin/pest --ci --parallel

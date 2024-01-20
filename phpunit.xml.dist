@@ -38,5 +38,9 @@
     <env name="DB_DATABASE" value=":memory:"/>
     <env name="QUEUE_CONNECTION" value="sync"/>
     <env name="SESSION_DRIVER" value="array"/>
+
+    <env name="PARATEST" value="1"/>
+    <env name="TEST_TOKEN" value="1"/>
+    <env name="UNIQUE_TEST_TOKEN" value="1_65ac1bb27ca00"/>
   </php>
 </phpunit>
