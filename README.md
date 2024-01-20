@@ -109,21 +109,53 @@ use WandesCardoso\MercadoPago\DTO\Preference;
                     
                     
 ```
+Create a plan
+    
+```php
+    use WandesCardoso\MercadoPago\DTO\Plan;
+    use WandesCardoso\MercadoPago\Enums\Currency;
+    use WandesCardoso\MercadoPago\Enums\FrequencyType;
+    use WandesCardoso\MercadoPago\Enums\PaymentType;
+    use WandesCardoso\MercadoPago\Facades\MercadoPago;
 
+    $plan = Plan::make()
+            ->setFrequency(1)
+            ->setFrequencyType(FrequencyType::MONTHS)
+            ->setRepetitions(12)
+            ->setBillingDay(15)
+            ->setBillingDayProportional(true)
+            ->setFreeTrial(30, FrequencyType::DAYS)
+            ->setTransactionAmount(100)
+            ->setCurrencyId(Currency::BRL)
+            ->setReason('Test plan')
+            ->setBackUrl('https://mysite.com.br/backurl')
+            ->setPaymentMethodsAllowed([PaymentType::CREDIT_CARD, PaymentType::DEBIT_CARD]);
+            
+    $response = MercadoPago::plan()->create($plan);
+    
+    var_dump($response);
+
+```
 ## Methods available
 
-- `request()->payment()->find()`
-- `request()->payment()->create()`
-- `request()->payment()->update()`
-- `request()->payment()->search()`
-- `request()->preference()->find()`
-- `request()->preference()->create()`
-- `request()->preference()->update()`
-- `request()->preference()->search()`
-- `request()->get()`
-- `request()->post()`
-- `request()->put()`
-- `request()->delete()`
+The function `mercadoPago()` returns an instance of the class `WandesCardoso\MercadoPago\MercadoPago` that has the following methods:
+
+- `mercadoPago()->payment()->find()`
+- `mercadoPago()->payment()->create()`
+- `mercadoPago()->payment()->update()`
+- `mercadoPago()->payment()->search()`
+- `mercadoPago()->preference()->find()`
+- `mercadoPago()->preference()->create()`
+- `mercadoPago()->preference()->update()`
+- `mercadoPago()->preference()->search()`
+- `mercadoPago()->plan()->find()`
+- `mercadoPago()->plan()->create()`
+- `mercadoPago()->plan()->update()`
+- `mercadoPago()->plan()->search()`
+- `mercadoPago()->get()`
+- `mercadoPago()->post()`
+- `mercadoPago()->put()`
+- `mercadoPago()->delete()`
 
 ## Contributing
 
