@@ -3,7 +3,6 @@
 use Saloon\Http\Faking\MockClient;
 use Saloon\Helpers\MockConfig;
 use Saloon\Http\Faking\MockResponse;
-use Symfony\Component\Dotenv\Dotenv;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +15,7 @@ use Symfony\Component\Dotenv\Dotenv;
 |
 */
 
-// uses(Tests\TestCase::class)->in('Feature');
+uses(Tests\TestCase::class)->in('Feature');
 
 /*
 |--------------------------------------------------------------------------
@@ -45,15 +44,7 @@ expect()->extend('toBeOne', function () {
 */
 function getAccessToken(): string
 {
-    $dir = __DIR__ . '/../../../../.env';
-
-    if( ! file_exists($dir)) {
-        return '';
-    }
-
-    (new Dotenv())->load($dir);
-
-    return $_ENV['MP_ACCESS_TOKEN'];
+    return config('mercadopago.access_token');
 }
 
 function mockClientFixture(string $mock): MockClient

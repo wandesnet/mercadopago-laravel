@@ -16,12 +16,14 @@
     },
     "require-dev": {
         "laravel/pint": "^1.13.4",
+        "orchestra/testbench": "^8.21",
         "pestphp/pest": "^2.24.0",
-        "phpstan/phpstan": "^1.10.39",
-        "symfony/var-dumper": "^6.3.6",
-        "symfony/dotenv": "^6.3"
+        "phpstan/phpstan": "^1.10.39"
     },
     "autoload": {
+        "files": [
+            "src/Helpers/helper.php"
+        ],
         "psr-4": {
             "WandesCardoso\\MercadoPago\\": "src/"
         }
@@ -33,15 +35,15 @@
     },
     "extra": {
         "laravel": {
-            "aliases": {
-                "MercadoPago": "WandesCardoso\\MercadoPago\\Facades\\MercadoPago"
-            },
             "providers": [
                 "WandesCardoso\\MercadoPago\\MercadoPagoServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "MercadoPago": "WandesCardoso\\MercadoPago\\Facades\\MercadoPago"
+            }
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
         "sort-packages": true,
