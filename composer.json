@@ -18,9 +18,7 @@
         "laravel/pint": "^1.13.4",
         "orchestra/testbench": "^8.21",
         "pestphp/pest": "^2.24.0",
-        "phpstan/phpstan": "^1.10.39",
-        "symfony/dotenv": "^6.3",
-        "symfony/var-dumper": "^6.3.6"
+        "phpstan/phpstan": "^1.10.39"
     },
     "autoload": {
         "psr-4": {
