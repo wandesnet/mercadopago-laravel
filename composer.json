@@ -21,6 +21,9 @@
         "phpstan/phpstan": "^1.10.39"
     },
     "autoload": {
+        "files": [
+            "src/Helpers/helper.php"
+        ],
         "psr-4": {
             "WandesCardoso\\MercadoPago\\": "src/"
         }
