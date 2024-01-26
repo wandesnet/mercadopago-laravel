@@ -152,10 +152,10 @@ The function `mercadoPago()` returns an instance of the class `WandesCardoso\Mer
 - `mercadoPago()->plan()->create()`
 - `mercadoPago()->plan()->update()`
 - `mercadoPago()->plan()->search()`
-- `mercadoPago()->get()`
-- `mercadoPago()->post()`
-- `mercadoPago()->put()`
-- `mercadoPago()->delete()`
+- `mercadoPago()->request()->get()`
+- `mercadoPago()->request()->post()`
+- `mercadoPago()->request()->put()`
+- `mercadoPago()->request()->delete()`
 
 ## Contributing
 
