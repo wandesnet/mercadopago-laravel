@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace WandesCardoso\MercadoPago;
 
+use Saloon\Http\Auth\TokenAuthenticator;
 use Saloon\Http\Connector;
 use WandesCardoso\MercadoPago\Traits\MpRequest;
 
@@ -13,7 +14,7 @@ final class MercadoPago extends Connector
 
     public function __construct(?string $access_token = null)
     {
-        $this->withTokenAuth($access_token ?? config('mercadopago.access_token'));
+        $this->authenticate(new TokenAuthenticator($access_token ?? config('mercadopago.access_token')));
     }
 
     public function resolveBaseUrl(): string
