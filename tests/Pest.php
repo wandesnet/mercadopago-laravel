@@ -56,13 +56,13 @@ function mockClientFixture(string $mock): MockClient
     ]);
 }
 
-function mockClient(string|array $mock, int $status = 200): MockClient
+function mockClient(string|array $mock, int $status = 200, array $headers = []): MockClient
 {
     if (is_string($mock)) {
         $mock = json_decode(file_get_contents(__DIR__ . '/Reponses/Mp/' . $mock . '/' . $mock . '.json'), true);
     }
 
     return new MockClient([
-        MockResponse::make($mock, $status),
+        MockResponse::make($mock, $status, $headers),
     ]);
 }

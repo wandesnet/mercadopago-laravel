@@ -11,6 +11,13 @@ use WandesCardoso\MercadoPago\Request\DeleteRequest;
 
 class MpResource extends Resource
 {
+    public function withHeader(string $name, string $value): static
+    {
+        $this->connector->headers()->add($name, $value);
+
+        return $this;
+    }
+
     /**
      * @param  array<string, mixed>  $params
      *

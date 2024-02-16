@@ -53,11 +53,14 @@ it('can create payment multiples items', function () {
         ->setPaymentMethodId('pix')
         ->setExternalReference('55');
 
-    $mockClient = mockClient([
-        'id' => 123456,
-        'transaction_amount' => 150,
-        'status' => 'approved',
-    ]);
+    $mockClient = mockClient(
+        mock: [
+            'id' => 123456,
+            'transaction_amount' => 150,
+            'status' => 'approved',
+        ],
+        status: 201
+    );
 
     $response = Mp::make(getAccessToken())->withMockClient($mockClient)->payment()->create($payment);
 
@@ -65,7 +68,7 @@ it('can create payment multiples items', function () {
         ->and($response['body']->id)->toEqual(123456)
         ->and($response['body']->transaction_amount)->toEqual(150)
         ->and($response['body']->status)->toEqual('approved')
-        ->and($response['httpCode'])->toEqual(200);
+        ->and($response['httpCode'])->toEqual(201);
 });
 
 it('can get payment', function () {

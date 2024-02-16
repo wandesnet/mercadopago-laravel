@@ -2,6 +2,7 @@
 
 namespace WandesCardoso\MercadoPago\Resource;
 
+use Ramsey\Uuid\Uuid;
 use WandesCardoso\MercadoPago\DTO\Payment;
 use WandesCardoso\MercadoPago\DTO\PaymentUpdate;
 
@@ -30,7 +31,7 @@ final class PaymentResource extends MpResource
      */
     public function create(Payment $payment): array
     {
-        return $this->post($this->baseUri, $payment->toArray());
+        return $this->withHeader('X-Idempotency-Key', Uuid::uuid4()->toString())->post($this->baseUri, $payment->toArray());
     }
 
     /**
