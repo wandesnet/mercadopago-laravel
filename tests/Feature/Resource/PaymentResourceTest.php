@@ -8,8 +8,6 @@ use WandesCardoso\MercadoPago\DTO\PaymentUpdate;
 use WandesCardoso\MercadoPago\DTO\Phone;
 use WandesCardoso\MercadoPago\Enums\Status;
 use WandesCardoso\MercadoPago\MercadoPago as Mp;
-use Saloon\Http\Request;
-use Saloon\Http\Response;
 
 it('can create payment multiples items', function () {
 
@@ -57,10 +55,12 @@ it('can create payment multiples items', function () {
 
     $mockClient = mockClient(
         mock: [
-        'id' => 123456,
-        'transaction_amount' => 150,
-        'status' => 'approved',
-        ], status: 201);
+            'id' => 123456,
+            'transaction_amount' => 150,
+            'status' => 'approved',
+        ],
+        status: 201
+    );
 
     $response = Mp::make(getAccessToken())->withMockClient($mockClient)->payment()->create($payment);
 
