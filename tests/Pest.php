@@ -16,7 +16,9 @@ use Saloon\Http\Faking\MockResponse;
 */
 
 uses(Tests\TestCase::class)->in('Feature');
-
+uses()
+    ->beforeEach(fn () => MockClient::destroyGlobal())
+    ->in(__DIR__);
 /*
 |--------------------------------------------------------------------------
 | Expectations
@@ -56,10 +58,19 @@ function mockClientFixture(string $mock): MockClient
     ]);
 }
 
+/**
+ * @throws Exception
+ */
 function mockClient(string|array $mock, int $status = 200, array $headers = []): MockClient
 {
     if (is_string($mock)) {
-        $mock = json_decode(file_get_contents(__DIR__ . '/Reponses/Mp/' . $mock . '/' . $mock . '.json'), true);
+        $fixturePath = __DIR__ . '/Fixtures/Mp/' . $mock . '.json';
+
+        if ( ! file_exists($fixturePath)) {
+            throw new Exception("Fixture not found: {$fixturePath}");
+        }
+
+        $mock = json_decode(file_get_contents($fixturePath), true);
     }
 
     return new MockClient([

@@ -8,6 +8,7 @@ use WandesCardoso\MercadoPago\Resource\MpResource;
 use WandesCardoso\MercadoPago\Resource\PaymentResource;
 use WandesCardoso\MercadoPago\Resource\PlanResource;
 use WandesCardoso\MercadoPago\Resource\PreferenceResource;
+use WandesCardoso\MercadoPago\Resource\SubscriptionResource;
 
 trait MpRequest
 {
@@ -29,5 +30,10 @@ trait MpRequest
     public function plan(): PlanResource
     {
         return new PlanResource($this);
+    }
+
+    public function subscription(): SubscriptionResource
+    {
+        return new SubscriptionResource($this);
     }
 }
