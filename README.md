@@ -150,8 +150,8 @@ Create a subscription
             ->setAutoRecurring(
                 frequency: 1, //required
                 frequencyType: FrequencyType::MONTHS, //required
-                startDate: now()->addMonth()->format('Y-m-d\TH:i:s\Z'),
-                endDate: now()->addMonths(12)->format('Y-m-d\TH:i:s\Z'),
+                startDate: now()->addMonth()->format('Y-m-d\TH:i:s.BP'),
+                endDate: now()->addMonths(12)->format('Y-m-d\TH:i:s.BP'),
                 amount: 100,
                 currency: Currency::BRL, //required
             )
