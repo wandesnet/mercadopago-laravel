@@ -12,14 +12,14 @@ it('can create subscription', function () {
         ->setAutoRecurring(
             frequency: 1,
             frequencyType: FrequencyType::MONTHS,
-            startDate: now()->addMonth()->format('Y-m-d\TH:i:s\Z'),
-            endDate: now()->addMonths(12)->format('Y-m-d\TH:i:s\Z'),
+            startDate: now()->addMonth()->format('Y-m-d\TH:i:s.BP'),
+            endDate: now()->addMonths(12)->format('Y-m-d\TH:i:s.BP'),
             amount: 100,
             currency: Currency::BRL,
         )
         ->setPreapprovalPlanId('2c938084726fca480172750000000000')
         ->setCredCardTokenId('2c9380848d22f7cc018d2725402d01f8')
-        ->setPayerEmail('test@gmail.com')
+        ->setPayerEmail('test_user_715128095@testuser.com')
         ->setReason('Test de subscription')
         ->setStatus(Status::pending)
         ->setBackUrl('https://mysite.com.br/backurl');
@@ -99,4 +99,13 @@ it('can update a subscription', function () {
         ->and($response['body']->auto_recurring->frequency_type)->toEqual('months')
         ->and($response['body']->auto_recurring->transaction_amount)->toEqual(100)
         ->and($response['body']->auto_recurring->currency_id)->toEqual('BRL');
+});
+
+it('can export subscription', function () {
+    $mockClient = mockClient(mock: [], status: 204);
+
+    $response = Mp::make()->withMockClient($mockClient)->subscription()->export(collectorId: '100200300', status: [Status::pending, Status::approved]);
+
+    expect($response)->toBeArray()
+        ->and($response['httpCode'])->toEqual(204);
 });
