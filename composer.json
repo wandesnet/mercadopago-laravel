@@ -11,15 +11,15 @@
     ],
     "require": {
         "php": "^8.1.0",
-        "laravel/framework": "^10.0",
-        "ramsey/uuid": "^4.7",
-        "saloonphp/saloon": "^3.0"
+        "laravel/framework": "^10.43",
+        "ramsey/uuid": "^4.7.5",
+        "saloonphp/saloon": "^3.6.2"
     },
     "require-dev": {
-        "laravel/pint": "^1.13.4",
-        "orchestra/testbench": "^8.21",
-        "pestphp/pest": "^2.24.0",
-        "phpstan/phpstan": "^1.10.39"
+        "laravel/pint": "^1.13.10",
+        "orchestra/testbench": "^8.21.1",
+        "pestphp/pest": "^2.33.6",
+        "phpstan/phpstan": "^1.10.57"
     },
     "autoload": {
         "files": [
