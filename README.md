@@ -13,6 +13,7 @@ Documentation official: https://www.mercadopago.com.br/developers
 ## Required
 
 - **PHP 8.1+**
+- **Laravel 10+**
 
 ## To get started, using the Composer package manager
 
@@ -134,8 +135,63 @@ Create a plan
     $response = MercadoPago::plan()->create($plan);
     
     var_dump($response);
+    
+```
+Create a subscription
+    
+```php
+    use WandesCardoso\MercadoPago\DTO\Subscription;
+    use WandesCardoso\MercadoPago\Enums\Currency;
+    use WandesCardoso\MercadoPago\Enums\FrequencyType;
+    use WandesCardoso\MercadoPago\Enums\Status;
+    use WandesCardoso\MercadoPago\Facades\MercadoPago;
+
+        $subscription = Subscription::make()
+            ->setAutoRecurring(
+                frequency: 1, //required
+                frequencyType: FrequencyType::MONTHS, //required
+                startDate: now()->addMonth()->format('Y-m-d\TH:i:s\Z'),
+                endDate: now()->addMonths(12)->format('Y-m-d\TH:i:s\Z'),
+                amount: 100,
+                currency: Currency::BRL, //required
+            )
+            ->setPreapprovalPlanId('2c938084726fca480172750000000000') //optional
+            ->setCredCardTokenId('2c9380848d22f7cc018d2725402d01f8') //required
+            ->setPayerEmail('test@gmail.com') //required
+            ->setReason('Test de subscription')
+            ->setStatus(Status::pending) //required
+            ->setBackUrl('https://mysite.com.br/backurl'); //required
+            
+        $response = MercadoPago::subscription()->create($subscription);
+        
+        var_dump($response);    
 
 ```
+Update a subscription
+
+```php
+    use WandesCardoso\MercadoPago\DTO\Subscription;
+    use WandesCardoso\MercadoPago\Enums\Currency;
+    use WandesCardoso\MercadoPago\Enums\FrequencyType;
+    use WandesCardoso\MercadoPago\Enums\Status;
+    use WandesCardoso\MercadoPago\Facades\MercadoPago;
+
+        $subscription = Subscription::make()
+            ->setAutoRecurring(
+                amount: 100,
+                currency: Currency::BRL, 
+            )
+            ->setCredCardTokenId('2c9380848d22f7cc018d2725402d01f8') 
+            ->setReason('Update subscription')
+            ->setStatus(Status::pending) 
+            ->setBackUrl('https://mysite.com.br/backurl'); 
+            
+        $response = MercadoPago::subscription()->update(subscription: $subscription, id: '2c938084726fca480172750000000000');
+        
+        var_dump($response);    
+
+```
+
 ## Methods available
 
 The function `mercadoPago()` returns an instance of the class `WandesCardoso\MercadoPago\MercadoPago` that has the following methods:
