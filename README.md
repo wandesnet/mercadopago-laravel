@@ -156,7 +156,7 @@ Create a subscription
                 currency: Currency::BRL, //required
             )
             ->setPreapprovalPlanId('2c938084726fca480172750000000000') //optional
-            ->setCredCardTokenId('2c9380848d22f7cc018d2725402d01f8') //required
+            ->setCredCardTokenId('2c9380848d22f7cc018d2725402d01f8') //required when using preapprovalPlanId
             ->setPayerEmail('test@gmail.com') //required
             ->setReason('Test de subscription')
             ->setStatus(Status::pending) //required
