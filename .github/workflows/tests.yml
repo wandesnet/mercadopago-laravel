@@ -43,7 +43,7 @@ jobs:
             - name: Install dependencies
               run: |
                   composer require "laravel/framework:${{ matrix.laravel }}" --no-interaction --no-update
-                  composer update --prefer-dist --no-interaction --no-progress -W
+                  composer update --prefer-dist --no-interaction --no-progress
 
             - name: Execute pint
               run: vendor/bin/pint --test
