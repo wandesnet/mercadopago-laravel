@@ -2,10 +2,10 @@
 
 use WandesCardoso\MercadoPago\MercadoPago as Mp;
 
-it('can get a subscription authorized payment', function () {
+it('can get a invoice with authorized payment', function () {
     $mockClient = mockClient('invoice/find');
 
-    $response = Mp::make(getAccessToken())->withMockClient($mockClient)->invoice()->find('1234567890');
+    $response = Mp::make(getAccessToken())->withMockClient($mockClient)->invoice()->find(1234567890);
 
     expect($response)->toBeArray()
         ->and($response['httpCode'])->toEqual(200)
@@ -15,11 +15,11 @@ it('can get a subscription authorized payment', function () {
         ->and($response['body']->payment->status)->toBe('approved');
 });
 
-it('can search a subscription authorized payment', function () {
+it('can search a invoice with authorized payment', function () {
     $mockClient = mockClient('invoice/search');
 
     $params = [
-        'preapproval_id' => '1234567890'
+        'preapproval_id' => '1234567890',
     ];
 
     $response = Mp::make(getAccessToken())->withMockClient($mockClient)->invoice()->search($params);
