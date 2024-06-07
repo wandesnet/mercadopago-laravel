@@ -1,0 +1,20 @@
+{
+    "preapproval_id": "1234567890",
+    "id": 1234567890,
+    "type": "recurring",
+    "status": "processed",
+    "date_created": "2024-06-06T16:58:12.279-04:00",
+    "last_modified": "2024-06-06T17:01:14.352-04:00",
+    "transaction_amount": 89.99,
+    "currency_id": "BRL",
+    "reason": "Teste Subscription",
+    "payment": {
+        "id": 1234567890,
+        "status": "approved",
+        "status_detail": "accredited"
+    },
+    "retry_attempt": 1,
+    "next_retry_date": "2024-06-07T16:56:38.000-04:00",
+    "debit_date": "2024-06-06T16:56:37.000-04:00",
+    "payment_method_id": "card"
+}
