@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WandesCardoso\MercadoPago\Traits;
 
-use WandesCardoso\MercadoPago\Resource\AuthorizedPaymentResource;
+use WandesCardoso\MercadoPago\Resource\InvoiceResource;
 use WandesCardoso\MercadoPago\Resource\MpResource;
 use WandesCardoso\MercadoPago\Resource\PaymentResource;
 use WandesCardoso\MercadoPago\Resource\PlanResource;
@@ -23,9 +23,9 @@ trait MpRequest
         return new PaymentResource($this);
     }
 
-    public function authorized_payment(): AuthorizedPaymentResource
+    public function invoice(): InvoiceResource
     {
-        return new AuthorizedPaymentResource($this);
+        return new InvoiceResource($this);
     }
 
     public function preference(): PreferenceResource

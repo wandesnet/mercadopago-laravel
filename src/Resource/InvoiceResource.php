@@ -2,11 +2,7 @@
 
 namespace WandesCardoso\MercadoPago\Resource;
 
-use Ramsey\Uuid\Uuid;
-use WandesCardoso\MercadoPago\DTO\Payment;
-use WandesCardoso\MercadoPago\DTO\PaymentUpdate;
-
-final class AuthorizedPaymentResource extends MpResource
+final class InvoiceResource extends MpResource
 {
     protected string $baseUri = '/authorized_payments';
 
