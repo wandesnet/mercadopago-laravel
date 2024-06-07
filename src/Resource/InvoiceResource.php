@@ -16,7 +16,7 @@ final class InvoiceResource extends MpResource
     }
 
     /** @return array<string, mixed> */
-    public function find(string $id): array
+    public function find(int $id): array
     {
         return $this->get("/{$this->baseUri}/{$id}");
     }
