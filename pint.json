@@ -9,6 +9,8 @@
     ],
     "rules": {
     "align_multiline_comment": true,
+    "single_space_around_construct": true,
+    "spaces_inside_parentheses": false,
     "array_indentation": true,
     "array_syntax": true,
     "assign_null_coalescing_to_coalesce_equal": true,
