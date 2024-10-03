@@ -14,3 +14,6 @@ updates:
       interval: "weekly"
     labels:
       - "dependencies"
+    ignore:
+      - dependency-name: "pestphp/pest"
+        versions: [">=3.0"]
