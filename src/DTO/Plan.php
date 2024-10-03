@@ -104,13 +104,13 @@ final class Plan implements Arrayable
     {
         $types = [];
 
-        if( ! is_array($paymentTypes)) {
+        if ( ! is_array($paymentTypes)) {
             $paymentTypes = [$paymentTypes];
         }
 
         foreach ($paymentTypes as $type) {
 
-            if( ! $type instanceof PaymentType) {
+            if ( ! $type instanceof PaymentType) {
                 throw new \InvalidArgumentException('Payment type must be an instance of PaymentType');
             }
 
