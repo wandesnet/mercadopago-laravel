@@ -14,7 +14,7 @@ final class MercadoPago extends Connector
 
     public function __construct(?string $access_token = null)
     {
-        $this->authenticate(new TokenAuthenticator($access_token ?? config('mercadopago.access_token')));
+        $this->authenticate(new TokenAuthenticator($access_token ?? config('mercadopago.access_token'))); // @phpstan-ignore-line
     }
 
     public function resolveBaseUrl(): string

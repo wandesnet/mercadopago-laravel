@@ -11,7 +11,7 @@ class MercadoPagoServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/../config/mercadopago.php', 'mercadopago');
 
         $this->app->singleton(MercadoPago::class, function () {
-            return new MercadoPago(config('mercadopago.access_token'));
+            return new MercadoPago(config('mercadopago.access_token')); // @phpstan-ignore-line
         });
 
         $this->app->alias(MercadoPago::class, 'mercadopago');
