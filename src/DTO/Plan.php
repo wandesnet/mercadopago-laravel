@@ -114,7 +114,7 @@ final class Plan implements Arrayable
                 throw new \InvalidArgumentException('Payment type must be an instance of PaymentType');
             }
 
-            $types[]['id'] = $type->value;
+            $types[] = ['id' => $type->value];
         }
 
         return $types;
@@ -130,7 +130,7 @@ final class Plan implements Arrayable
         $methods = [];
 
         foreach ($paymentMethods as $method) {
-            $methods[]['id'] = $method;
+            $methods[] = ['id' => $method];
         }
 
         return $methods;
