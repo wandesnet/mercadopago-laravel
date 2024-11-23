@@ -10,6 +10,6 @@ trait Makeable
             $args = $args[0];
         }
 
-        return new self(...$args);
+        return new self(...$args); // @phpstan-ignore-line
     }
 }
