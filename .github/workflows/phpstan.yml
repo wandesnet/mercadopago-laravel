@@ -13,18 +13,15 @@ jobs:
     name: phpstan
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Setup PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@2.35.5
         with:
-          php-version: '8.2'
-          coverage: none
+          php-version: '8.3'
 
       - name: Install composer dependencies
         uses: ramsey/composer-install@v3
-        with:
-          composer-options: '--ignore-platform-req=php'
 
       - name: Run PHPStan
         run: ./vendor/bin/phpstan analyse --error-format=github
